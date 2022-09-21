@@ -1,0 +1,14 @@
+[package]
+name = "libp2p-with-serial-test"
+version = "0.1.0"
+edition = "2021"
+
+[dev-dependencies]
+# DOES WORK
+#libp2p = { version = "0.45" }
+
+# DOES NOT WORK
+libp2p = { version = "0.46" }
+
+serial_test = { version = "0.9.0", features = ["file_locks", "fslock"], default-features = false }
+tokio = { version = "1.21.1", default-features = false, features = ["rt-multi-thread", "macros", "time"] }
