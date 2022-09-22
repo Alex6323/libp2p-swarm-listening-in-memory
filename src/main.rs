@@ -31,6 +31,24 @@ async fn test2() {
     println!("test2 end");
 }
 
+#[test]
+#[serial_test::serial]
+fn test3() {
+    println!("test3 start");
+    build_swarm(create_local_bind_addr_from_port(1337));
+    std::thread::sleep(Duration::from_secs(1));
+    println!("test3 end");
+}
+
+#[test]
+#[serial_test::serial]
+fn test4() {
+    println!("test4 start");
+    build_swarm(create_local_bind_addr_from_port(1337));
+    std::thread::sleep(Duration::from_secs(1));
+    println!("test4 end");
+}
+
 fn create_local_bind_addr_from_port(port: u16) -> Multiaddr {
     let mut addr = Multiaddr::empty();
     addr.push(Protocol::Memory(port as u64));
