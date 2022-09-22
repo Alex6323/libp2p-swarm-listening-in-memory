@@ -5,10 +5,12 @@ edition = "2021"
 
 [dev-dependencies]
 # DOES WORK
-libp2p = { version = "0.45" }
+#libp2p = { version = "0.45" }
 
-# DOES NOT WORK
-#libp2p = { version = "0.46" }
+# DOES FAIL ONWARDS
+libp2p = { version = "0.46" }
+#libp2p = { version = "0.47" }
+#libp2p = { version = "0.48" }
 
 serial_test = { version = "0.9.0", features = ["file_locks", "fslock"], default-features = false }
 tokio = { version = "1.21.1", default-features = false, features = ["rt-multi-thread", "macros", "time"] }

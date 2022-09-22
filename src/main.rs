@@ -17,7 +17,7 @@ fn main() {}
 #[serial_test::serial]
 async fn test1() {
     println!("test1 start");
-    build_swarm(create_local_bind_addr_from_port(1337));
+    build_swarm(memory_addr_from_port(1337));
     tokio::time::sleep(Duration::from_secs(1)).await;
     println!("test1 end");
 }
@@ -26,7 +26,7 @@ async fn test1() {
 #[serial_test::serial]
 async fn test2() {
     println!("test2 start");
-    build_swarm(create_local_bind_addr_from_port(1337));
+    build_swarm(memory_addr_from_port(1337));
     tokio::time::sleep(Duration::from_secs(1)).await;
     println!("test2 end");
 }
@@ -35,7 +35,7 @@ async fn test2() {
 #[serial_test::serial]
 fn test3() {
     println!("test3 start");
-    build_swarm(create_local_bind_addr_from_port(1337));
+    build_swarm(memory_addr_from_port(1337));
     std::thread::sleep(Duration::from_secs(1));
     println!("test3 end");
 }
@@ -44,12 +44,12 @@ fn test3() {
 #[serial_test::serial]
 fn test4() {
     println!("test4 start");
-    build_swarm(create_local_bind_addr_from_port(1337));
+    build_swarm(memory_addr_from_port(1337));
     std::thread::sleep(Duration::from_secs(1));
     println!("test4 end");
 }
 
-fn create_local_bind_addr_from_port(port: u16) -> Multiaddr {
+fn memory_addr_from_port(port: u16) -> Multiaddr {
     let mut addr = Multiaddr::empty();
     addr.push(Protocol::Memory(port as u64));
     addr
